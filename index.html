@@ -1,1 +1,86 @@
-zaklecia harrego
+<!DOCTYPE html>
+<html lang="en" ng-app="zhApp">
+    <head>
+        <title>Zaklęcia Harrego</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/https-redirect.js?v=1"></script>
+    </head>
+    <body ng-controller="mainCtrl as main" >
+
+        <ul id="slide-out" class="side-nav fixed" ng-controller="menuCtrl as menu">
+            <li class="logo red">
+                <a href="#/">
+                    <img src="./img/default_spell.jpg" alt="" class="z-depth-2"/>
+                    
+                </a>
+            </li>
+            <li ng-repeat="item in menu.items">
+                <a href="#{{item.route}}">
+                    <img ng-src="{{item.iconurl}}" alt="" class="circle menu-ico"/>
+                    {{item.text}}
+                </a>
+            </li>
+        </ul> 
+
+        <header class="navbar-fixed">
+            <nav class="blue-grey darken-1 top-nav">
+                <div class="nav-wrapper">
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                    <div class="truncate brand-logo">&nbsp;{{pageTitle}}&nbsp;</div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <div class="container center" ng-show="showPreloader" style="padding:3rem">
+
+                        <div class="preloader-wrapper big active">
+                            <div class="spinner-layer spinner-red-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div ng-show="!showPreloader" ng-view></div>
+                </div>
+            </div>
+        </main>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js"></script>
+        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/js/materialize.min.js"></script>
+        <script src="./js/app.js"></script>
+        <script src="./js/services/pagesService.js"></script>
+        <script src="./js/services/dataService.js"></script>
+        <script src="./js/controllers/mainCtrl.js"></script>
+        <script src="./js/controllers/menuCtrl.js"></script>
+        <script src="./js/controllers/homeCtrl.js"></script>
+        <script src="./js/controllers/listCtrl.js"></script>
+
+        <script type="text/javascript">
+                                        $(document).ready(function () {
+                                $('.button-collapse').sideNav({
+                                menuWidth: 304
+                                });
+                                });                                            
+        </script>
+    </body>    
+</html>
