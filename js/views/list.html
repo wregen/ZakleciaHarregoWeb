@@ -1,7 +1,11 @@
-<div class="collection">
-    <div ng-repeat="el in list.spells| orderBy: 'value.name'" href="#!" class="collection-item">
-        <h4>{{el.value.name}}</h4>
-        <p>{{el.value.description}}</p>
-    </div>
-</div>
-
+<md-content>
+    <md-card ng-repeat="el in list.spells">
+        <md-card-content>
+            <h2>{{el.value.name}}</h2>
+            <p>{{el.value.description}}</p>
+            <div style="float:left" ng-repeat="pel in list.pics[el.value.name]">
+                <img ng-src="{{pel.images.thumbnail.url}}"  />
+            </div>
+        </md-card-content>
+    </md-card>
+</md-content>

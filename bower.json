@@ -1,0 +1,17 @@
+{
+  "name": "ZakleciaHarregoWeb",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wregen/ZakleciaHarregoWeb",
+  "authors": [
+    "wregen <W.Regenczuk@yahoo.com>"
+  ],
+  "description": "Simple AngularJs application.",
+  "main": "index.htmlo",
+  "license": "MIT",
+  "devDependencies": {
+    "lumx": "~0.3.25"
+  },
+  "dependencies": {
+    "angular-route": "~1.3.15"
+  }
+}

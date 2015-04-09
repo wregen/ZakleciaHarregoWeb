@@ -3,17 +3,17 @@
 
     angular
             .module('zhApp')
-            .factory('dataservice', dataservice);
+            .factory('dataService', dataService);
 
-    dataservice.$inject = ['$http', '$log', 'zhAppSettings'];
+    dataService.$inject = ['$http', '$log', 'appSettings'];
 
-    function dataservice($http, $log, zhAppSettings) {
+    function dataService($http, $log, appSettings) {
         return {
             getSpells: getSpells
         };
 
         function getSpells() {
-            return $http.get(zhAppSettings.db + '/_design/spells/_view/list')
+            return $http.get(appSettings.db + '/_design/spells/_view/list')
                     .then(getSpellsComplete)
                     .catch(getSpellsFailed);
 
