@@ -1,0 +1,10 @@
+<div class="md-toolbar-tools" ng-controller="menuController as menu">
+    <span flex></span>
+    <div ng-repeat="item in menu.items" >
+        <md-button class="md-icon-button"  ng-click="menu.selectItem(item.route, 'left')"  ng-class="{'selected' : it === selected }">
+            <img ng-src="{{item.iconurl}}" class="face-toolbar" alt="">
+            {{item.text}}
+        </md-button>
+    </div>
+    <span flex></span>
+</div>

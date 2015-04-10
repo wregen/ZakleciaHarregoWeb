@@ -14,9 +14,12 @@
         vm.toggleMenu = function (menuId) {
             menuService.toggleMenu(menuId);
         };
+        vm.hideMenu = function (menuId) {
+            menuService.hideMenu(menuId);
+        };
 
         function selectItem(item, menuId) {
-            menuService.toggleMenu(menuId);
+            menuService.hideMenu(menuId);
             $location.path(item);
         }
 

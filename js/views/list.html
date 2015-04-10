@@ -1,11 +1,41 @@
-<md-content>
+<!--
     <md-card ng-repeat="el in list.spells">
         <md-card-content>
             <h2>{{el.value.name}}</h2>
-            <p>{{el.value.description}}</p>
+            <p class="md-body-1">{{el.value.description}}</p>
             <div style="float:left" ng-repeat="pel in list.pics[el.value.name]">
                 <img ng-src="{{pel.images.thumbnail.url}}"  />
             </div>
         </md-card-content>
     </md-card>
-</md-content>
+-->
+
+<md-grid-list ng-cloack layout-margin
+              md-cols="3" md-cols-sm="1" md-cols-md="1"
+              md-row-height="4:3"
+              md-gutter="16px">
+    <md-grid-tile
+        layout="column" layout-align="start start"
+        class="md-whiteframe-z1"
+
+        ng-repeat="el in list.spells"
+        ng-style="{
+            'background': '#84ffff'
+          }"
+        md-colspan-gt-sm="1"
+        md-rowspan-gt-sm="1">
+        <md-grid-tile-header>
+            <h2 style="margin-left:1rem;">{{el.value.name}}</h2>
+        </md-grid-tile-header>
+<!--        <img src="./img/default_spell.jpg" alt="" class="img-responsive"/>    -->
+        <div flex style="height:100%;padding:4rem 1rem 4rem 1rem;overflow: hidden">
+            {{el.value.description}}
+        </div>
+        <md-grid-tile-footer>
+            <p style="margin-left:1rem;">{{el.value.name}}</p>
+        </md-grid-tile-footer>
+
+
+
+    </md-grid-tile>
+</md-grid-list>

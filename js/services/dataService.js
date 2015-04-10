@@ -13,7 +13,7 @@
         };
 
         function getSpells() {
-            return $http.get(appSettings.db + '/_design/spells/_view/list')
+            return $http.jsonp(appSettings.db + '/_design/spells/_view/list' + appSettings.suffix)
                     .then(getSpellsComplete)
                     .catch(getSpellsFailed);
 

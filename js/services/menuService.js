@@ -9,13 +9,14 @@
 
     function menuService($mdSidenav) {
         var items = [
-            {inMenu: false, text: 'Home', route: '/', iconurl: './img/icons/home.png'},
+            {inMenu: false, text: '', route: '/', iconurl: './img/icons/home.png'},
             {inMenu: true, text: 'Lista Zaklęć', route: '/list', iconurl: './img/icons/spells.png'},
             {inMenu: true, text: 'Kategorie Zaklęć', route: '/categories', iconurl: './img/icons/categories.png'},
             {inMenu: true, text: 'O Aplikacji', route: '/about', iconurl: './img/icons/about.png'}
         ],
                 factory = {
                     toggleMenu: toggleMenu,
+                    hideMenu: hideMenu,
                     getMenuItems: getMenuItems,
                     getTextFromRoute: getTextFromRoute
                 };
@@ -24,6 +25,10 @@
 
         function toggleMenu(menuId) {
             $mdSidenav(menuId).toggle();
+        }
+
+        function hideMenu(menuId) {
+            $mdSidenav(menuId).close();
         }
 
         function getMenuItems() {

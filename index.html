@@ -12,19 +12,31 @@
     <body ng-cloak layout="column" ng-controller="mainController as main">
 
         <div layout="row" flex>
-
-            <md-sidenav ng-include src="'./js/views/menu.html'" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <!--            md-is-locked-open="$mdMedia('gt-md')"-->
+            <md-sidenav ng-include src="'./js/views/menu-sm.html'" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" >
             </md-sidenav>
 
             <div layout="column" flex>
 
-                <md-toolbar layout="row" class="md-warn" ng-controller="toolbarController as toolbar">
-                    <button ng-click="toolbar.toggleMenu('left')" hide-gt-md class="menuBtn">
-                        <span class="visually-hidden">Menu</span>
-                    </button>
-                    <h1 class="md-toolbar-tools">
-                        {{toolbar.pageTitle|| ''}}
-                    </h1>
+                <md-toolbar layout="row" ng-controller="toolbarController as toolbar">
+                    <div class="md-toolbar-tools" style="white-space: nowrap">
+                        <md-button  ng-click="toolbar.toggleMenu('left')" hide-gt-md aria-label="Menu">
+                            <md-icon md-svg-icon="menu" alt=""></md-icon>
+                        </md-button>
+                        &nbsp;
+                        <div ng-click="toolbar.selectItem('/','left')" aria-label="Home" class="md-title" style="cursor:pointer">
+                        Zaklęcia Harrego 
+                        </div>
+                        &nbsp;
+                        <md-icon md-svg-icon="chevron_right" ng-show="toolbar.pageTitle" alt=""></md-icon>
+                        &nbsp;
+                        {{toolbar.pageTitle|| ''}} 
+                        &nbsp;
+                        <span flex></span>
+                    </div>
+                </md-toolbar>
+                <md-toolbar class="md-warn" ng-include src="'./js/views/menu-lg.html'" layout="row" hide show-gt-md >
+
                 </md-toolbar>
 
                 <md-content layout="column" flex class="md-padding">

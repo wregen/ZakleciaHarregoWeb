@@ -4,10 +4,13 @@
     angular
             .module('zhApp', ['ngMaterial', 'ngRoute', 'ngResource'])
             .constant('appSettings', {
-                db: 'https://zakleciaharrego-wregenczuk.rhcloud.com/zakleciaharrego'
+                db: 'https://zakleciaharrego-wregenczuk.rhcloud.com/zakleciaharrego',
+                suffix: '?callback=JSON_CALLBACK'
             })
-            .config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
-
+            .config(['$routeProvider', '$mdThemingProvider', '$mdIconProvider', function ($routeProvider, $mdThemingProvider, $mdIconProvider) {
+                    $mdIconProvider
+                            .defaultIconSet('img/svg/core-icons.svg', 22);
+                    
                     $mdThemingProvider.theme('default')
                             .primaryPalette('blue-grey')
                             .accentPalette('orange');

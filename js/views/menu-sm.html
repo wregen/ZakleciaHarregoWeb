@@ -1,10 +1,12 @@
 <md-content flex ng-controller="menuController as menu">
-    <md-toolbar layout="row" class="md-warn">
-        <h1 class="md-toolbar-tools" ng-click="menu.selectItem('/', 'left')" style="cursor:pointer">
-            Zaklęcia Harrego
-        </h1>
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools left">
+            <md-button ng-click="menu.hideMenu('left')" aria-label="Back" class="backBtn">
+                <md-icon md-svg-icon="arrow-back" style="color: #fafafa;" alt=""></md-icon>
+            </md-button>
+        </div>
     </md-toolbar>
-    
+
     <md-list>
         <md-item  ng-repeat="item in menu.items">
             <md-item-content>
